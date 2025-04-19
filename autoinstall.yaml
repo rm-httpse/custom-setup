@@ -1,0 +1,35 @@
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: ven-machine
+    username: luis
+    password: "tumamaesunaputa69"
+  locale: en_US
+  keyboard:
+    layout: us
+  storage:
+    layout:
+      name: lvm
+    config:
+      - type: physical
+        id: disk0
+        size: 0
+        path: /dev/sda
+        wipe: superblock
+        name: "primary"
+      - type: partition
+        id: part1
+        size: 60GB
+        name: root
+        format: ext4
+      - type: partition
+        id: part2
+        size: 16GB
+        name: swap
+        format: swap
+      - type: partition
+        id: part3
+        size: 0
+        name: data
+        format: ext4
